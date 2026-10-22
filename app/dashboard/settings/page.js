@@ -1,0 +1,3 @@
+export default function SettingsPage() {
+  return <main className="py-10 sm:py-14"><p className="mb-3 text-xs font-extrabold uppercase tracking-[.17em] text-emerald-800">Same dashboard layout</p><h1 className="text-4xl font-black tracking-tight sm:text-6xl">Settings</h1><p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">A separate page file creates <code>/dashboard/settings</code> while inheriting the dashboard layout.</p><div className="mt-8 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><h2 className="text-xl font-extrabold">Profile</h2><p className="mt-2 text-slate-600">Learning mode: enabled</p></div></main>;
+}

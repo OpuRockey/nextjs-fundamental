@@ -1,0 +1,3 @@
+export default function BillingPage() {
+  return <main className="py-10 sm:py-14"><p className="mb-3 text-xs font-extrabold uppercase tracking-[.17em] text-emerald-800">Same dashboard layout</p><h1 className="text-4xl font-black tracking-tight sm:text-6xl">Billing</h1><p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">This route shares the workspace sidebar and header through <code>dashboard/layout.js</code>.</p><div className="mt-8 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><p className="text-sm font-bold text-emerald-800">CURRENT PLAN</p><h2 className="mt-2 text-2xl font-black">Starter</h2><p className="mt-2 text-slate-600">Current total: $0.00</p></div></main>;
+}

@@ -1,0 +1,4 @@
+export const posts = [
+  { slug: "nextjs-layouts", title: "Understanding Next.js Layouts", category: "Routing", excerpt: "Use shared layouts to give related pages a consistent frame.", body: "A layout is shared UI around a route segment. The root layout wraps every route, while a nested layout wraps only its descendants. Each layout renders its child through the children prop." },
+  { slug: "server-components", title: "Server Components by Default", category: "Rendering", excerpt: "Keep data work on the server and add client behavior only where it is needed.", body: "App Router pages and layouts are Server Components unless you opt a component into the client with the use client directive. Server Components can read data close to its source, while focused Client Components handle state and browser events." },
+];

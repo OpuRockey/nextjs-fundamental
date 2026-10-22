@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html.dark {
+  color-scheme: dark;
+  background: #0b1220;
+}
+
+html.dark body {
+  background-color: #0b1220;
+  color: #e2e8f0;
+}
+
+html.dark [class~="bg-white"],
+html.dark [class~="bg-white/70"],
+html.dark [class~="bg-white/85"] {
+  background-color: #111c2e;
+}
+
+html.dark [class~="bg-slate-50"],
+html.dark [class~="bg-slate-100"] {
+  background-color: #1e293b;
+}
+
+html.dark [class~="bg-emerald-50"],
+html.dark [class~="bg-emerald-100"],
+html.dark [class~="bg-sky-50"],
+html.dark [class~="bg-amber-50"] {
+  background-color: #16352f;
+}
+
+html.dark [class~="bg-gradient-to-r"] {
+  background-image: linear-gradient(to right, #16352f, #111c2e);
+}
+
+html.dark [class~="bg-gradient-to-br"]:not([class~="from-emerald-950"]) {
+  background-image: linear-gradient(to bottom right, #111c2e, #16352f);
+}
+
+html.dark [class~="border-slate-100"],
+html.dark [class~="border-slate-200"],
+html.dark [class~="border-slate-200/80"],
+html.dark [class~="border-emerald-100"],
+html.dark [class~="border-emerald-200"] {
+  border-color: #334155;
+}
+
+html.dark [class~="text-slate-900"] { color: #f1f5f9; }
+html.dark [class~="text-slate-600"] { color: #cbd5e1; }
+html.dark [class~="text-slate-500"] { color: #94a3b8; }
+html.dark [class~="text-slate-400"] { color: #94a3b8; }
+html.dark [class~="text-emerald-800"] { color: #6ee7b7; }
+html.dark [class~="text-emerald-900"] { color: #a7f3d0; }
+html.dark [class~="text-emerald-950"] { color: #d1fae5; }
+
+html.dark button[class~="bg-white"] {
+  border-color: #334155;
+  background-color: #111c2e;
+  color: #cbd5e1;
+}

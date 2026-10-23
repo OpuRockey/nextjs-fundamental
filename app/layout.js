@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import ThemeToggle from "./ui/ThemeToggle";
+import NavigationLink from "./ui/NavigationLink";
 
 export const metadata = {
   title: "Layouts & Pages Playground",
@@ -18,7 +19,8 @@ export default function RootLayout({ children }) {
               RouteLab<span className="ml-1 hidden rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[.16em] text-emerald-800 sm:inline">Learn by building</span>
             </Link>
             <nav aria-label="Main navigation" className="order-3 flex w-full items-center gap-2 overflow-x-auto pb-1 text-sm font-semibold text-slate-500 sm:order-none sm:ml-auto sm:w-auto sm:pb-0">
-              {[["About", "/about"], ["Blog", "/blog"], ["Products", "/products"], ["Dashboard", "/dashboard"]].map(([label, href]) => <Link key={href} href={href} className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-emerald-50 hover:text-emerald-900">{label}</Link>)}
+              <a href="/about" className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-emerald-50 hover:text-emerald-900">About · native link</a>
+              {[["Blog", "/blog"], ["Products", "/products"], ["Dashboard", "/dashboard"]].map(([label, href]) => <NavigationLink key={href} href={href} className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-emerald-50 hover:text-emerald-900">{label}</NavigationLink>)}
             </nav>
             <ThemeToggle />
           </div>

@@ -4,9 +4,19 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
+.navigation-link { position: relative; }
+.link-pending { position: absolute; right: .65rem; bottom: .3rem; left: .65rem; height: 2px; border-radius: 999px; background: #059669; opacity: 0; transform: scaleX(.25); transform-origin: left; }
+.link-pending.is-pending { animation: link-pending-in 120ms ease-out forwards, link-pending-progress 900ms ease-in-out 120ms infinite; }
+@keyframes link-pending-in { to { opacity: 1; } }
+@keyframes link-pending-progress { 50% { transform: scaleX(.85); } to { transform: scaleX(1); } }
+
 html.dark {
   color-scheme: dark;
   background: #0b1220;
+}
+
+html:not(.dark) {
+  color-scheme: light;
 }
 
 html.dark body {

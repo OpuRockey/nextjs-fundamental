@@ -1,6 +1,8 @@
 import Link from "next/link";
 import LikeButton from "./ui/LikeButton";
 import GoToDashboardButton from "./ui/GoToDashboardButton";
+import HoverPrefetchLink from "./ui/HoverPrefetchLink";
+import LocaleSwitcher from "./ui/LocaleSwitcher";
 
 const examples = [
   ["Static routes", "/about", "Folders plus page.js create routes."],
@@ -11,6 +13,9 @@ const examples = [
   ["Nested dashboard", "/dashboard/projects", "Shared dashboard and projects layouts."],
   ["Dynamic course", "/courses/nextjs", "One page handles different course names."],
   ["Route group", "/pricing", "The (marketing) folder organizes routes without adding a URL segment."],
+  ["Streaming fallback", "/courses/nextjs", "A loading.js skeleton streams while the dynamic course resolves."],
+  ["Native history sort", "/products", "pushState updates sort and keeps Back/Forward history."],
+  ["Locale history", "/", "replaceState updates the locale without adding a history entry."],
 ];
 
 export default function HomePage() {
@@ -32,7 +37,7 @@ export default function HomePage() {
       <section className="mt-16 sm:mt-20" aria-label="Routing examples">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div><p className="mb-2 text-xs font-extrabold uppercase tracking-[.18em] text-emerald-800">Explore the playground</p><h2 className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Pick a route. See the pattern.</h2></div>
-          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-500">8 interactive examples</span>
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-500">11 interactive examples</span>
         </div>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {examples.map(([title, href, description], index) => (
@@ -44,6 +49,16 @@ export default function HomePage() {
           </Link>
         ))}
       </div>
+      </section>
+      <section className="mt-6 grid gap-4 rounded-2xl border border-slate-200 bg-white p-6 sm:grid-cols-2 sm:p-8" aria-label="Navigation optimization demos">
+        <div><p className="mb-2 text-xs font-extrabold uppercase tracking-[.16em] text-emerald-800">Prefetch control</p><h2 className="text-xl font-black">Prefetch only when likely</h2><p className="mt-2 text-sm leading-6 text-slate-600">This link starts with prefetch disabled, then opts into the default behavior after pointer hover or keyboard focus. Link prefetching starts after hydration.</p><HoverPrefetchLink href="/blog/server-components" className="mt-4 inline-flex rounded-xl bg-emerald-800 px-4 py-3 text-sm font-bold text-white">Hover or focus to prefetch →</HoverPrefetchLink></div>
+        <div className="flex items-center"><LocaleSwitcher /></div>
+      </section>
+      <section className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-6 sm:p-8" aria-label="Loading UI demo">
+        <p className="mb-2 text-xs font-extrabold uppercase tracking-[.16em] text-amber-900">Loading UI demo</p>
+        <h2 className="text-xl font-black tracking-tight text-slate-900">See the fallback on demand</h2>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-700">This link disables prefetching and the demo route waits 1.8 seconds, making its loading skeleton visible even on a fast connection.</p>
+        <Link prefetch={false} href="/courses/nextjs?slow=1" className="mt-4 inline-flex rounded-xl bg-amber-900 px-4 py-3 text-sm font-bold text-white transition hover:bg-amber-950">Show course loading state →</Link>
       </section>
       <section className="mt-6 flex flex-col gap-6 rounded-2xl border border-emerald-100 bg-gradient-to-r from-emerald-50 to-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
         <div><p className="mb-2 text-xs font-extrabold uppercase tracking-[.16em] text-emerald-800">A little client-side interactivity</p><h2 className="text-xl font-black tracking-tight text-slate-900 sm:text-2xl">Server by default. Interactive where it counts.</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">This like button needs browser state, so only this small component is a Client Component.</p></div>
